@@ -25,8 +25,8 @@ class GatewayController < ApplicationController
   	@payment = PayPal::SDK::REST::Payment.new({
 	  :intent => "sale",
 	  :redirect_urls => {
-	    	:return_url => "http://tbf.mx",
-	    	:cancel_url => "http://google.com"},
+	    	:return_url => "http://kos.tbf.mx/gateway/pago_paypal",
+	    	:cancel_url => "http://kos.tbf.mx"},
 	  :payer => {
 	    :payment_method => "paypal"
 		},
@@ -126,7 +126,7 @@ class GatewayController < ApplicationController
   def execute_payment(pp_id,pl_id)
   	payment = Payment.find(pp_id)
 
-	if payment.execute( :payer_id => "V2JJCS4BQJVJC" )
+	if payment.execute( :payer_id => pl_id )
 	  # Success Message
 	  @mensajePP = "el pago se realizo con exito"
 	else
