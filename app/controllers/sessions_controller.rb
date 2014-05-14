@@ -24,12 +24,12 @@ class SessionsController < ApplicationController
 
   		redirect_to store_url
   	else
-  		redirect_to "login", alert: "Invalid user/password combination"
+  		redirect_to login_url, alert: "Invalid user/password combination"
   	end
   end
 
   def destroy
   	session[:user_id] = nil
-  	redirect_to "login", notice: "Logged out"
+  	redirect_to login_url, notice: "Logged out"
   end
 end
