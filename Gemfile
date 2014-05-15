@@ -44,6 +44,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'paypal-sdk-rest'
 gem 'multi_json'
+
 group :production do
-	gem 'mysql2'
+	gem 'mysql2' 
 end

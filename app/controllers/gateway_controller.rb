@@ -38,7 +38,7 @@ class GatewayController < ApplicationController
 	        :subtotal => @total,
 	        :tax => "0.00",
 	        :shipping => "0.00"}},
-	    :description => "Gastos de Manga" + @total + "" }]})
+	    :description => "Productos: " + @total + " " }]})
 
 	if @payment.create
 	  respuesta = true	
@@ -121,6 +121,20 @@ class GatewayController < ApplicationController
 	# Get List of Payments
 	payment_history = Payment.all( :count => 1 )
 	@grid = payment_history.payments #<--para grid
+
+	@ligas = Array.new
+	contador = 0
+
+	@grid.each do |dante|
+
+		dante.links.each do |kalos|
+			@ligas[contador] = kalos.href
+			contador += 1
+		end
+	end
+	@ligapp = @ligas[1]
+
+	redirect_to @ligapp
   end
 
   def execute_payment(pp_id,pl_id)

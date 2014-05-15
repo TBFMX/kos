@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   controller :gateway do
     get 'gateway/paypal' => :paypal
-    post 'gateway/paypal' => :pago_paypal
+    post 'gateway/paypal' => :paypal
 
 
   end
