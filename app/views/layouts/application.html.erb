@@ -10,13 +10,10 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %><!-- <label id="code.jlt"/> -->
   <%= csrf_meta_tags %><!-- <label id="code.csrf"/> -->
 </head>
-<!-- END:head -->
+  <%= render partial: "layouts/header" %>
+  <%= render partial: "layouts/breadcrumb" %>
 <body class="<%= controller.controller_name %>">
-<!-- START_HIGHLIGHT -->
-  <div id="banner">
-    <%= image_tag("logo.png") %>
-    <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
-  </div>
+  <div class="content">
   <div id="columns">
     <div id="side">
       <div id="cart">
@@ -29,6 +26,8 @@
 <!-- START_HIGHLIGHT -->
     </div>
   </div>
+  </div>
 <!-- END_HIGHLIGHT -->
 </body>
+  <%= render partial: "layouts/footer" %>
 </html>
